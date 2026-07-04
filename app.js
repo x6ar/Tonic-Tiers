@@ -1,0 +1,532 @@
+/* ---------------- icons ---------------- */
+const ICONS = {
+  trophy:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 5H4a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4M17 5h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4"/></svg>`,
+  swords:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 17.5 3 3L21 17l-3-3M3 21l6-6M14 4l7 7-2 2-7-7 2-2ZM3 3l4 1 6 6-2 2-6-6-1-4ZM17.5 6.5l3-3L17 0l-3 3"/></svg>`,
+  gem:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6M2 9h20"/></svg>`,
+  heart:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.5 3-6a4.5 4.5 0 0 0-8-2.8A4.5 4.5 0 0 0 6 5.2c-1.5 1.5-3 3.5-3 6 0 5.5 8 11 9 11.5 1-.5 9-6 9-11.5Z" transform="translate(-1,0.3) scale(0.98)"/></svg>`,
+  flask:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6M10 2v6l-5.5 9.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.5L14 8V2"/><path d="M7.5 14h9"/></svg>`,
+  ghost:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 10h.01M15 10h.01M4 20V11a8 8 0 0 1 16 0v9l-2.5-2-2.5 2-2.5-2-2.5 2-2.5-2L4 20Z"/></svg>`,
+  circleDot:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>`,
+  sword:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5 3 6V3h3l11.5 11.5"/><path d="M13 19l6-6M16 16l4 4-2 2-4-4M19 21l2-2"/></svg>`,
+  pickaxe:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 12.5 20 18a1.5 1.5 0 0 1-2 2l-5.5-5.5M5 8c1.5-3 4.5-5.5 8-6 .5 2.5-1 5.5-3 7.5S5.5 12 3 11.5C3.5 10 4 9 5 8Z"/><path d="M3.5 20.5 9 15"/></svg>`,
+  hammer:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a1.5 1.5 0 0 1-2-2L13 10"/><path d="M17.5 5.5 21 9l-3 3-6-6 3-3 2.5 2.5Z"/></svg>`,
+  home:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10.5Z"/></svg>`,
+  discord:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 9h10M7 13h6"/></svg>`,
+  book:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5v-17Z"/><path d="M20 19H6.5A2.5 2.5 0 0 0 4 21.5"/></svg>`,
+  search:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>`,
+  shield:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"/></svg>`,
+  logout:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3M16 17l5-5-5-5M21 12H9"/></svg>`,
+  info:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>`,
+  copy:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>`,
+  x:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>`,
+  plus:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>`,
+  trash:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14"/></svg>`,
+  zap:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>`,
+  check:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`,
+  inbox:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 3h6l2-3h4"/><path d="M5 4h14l2 8v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6L5 4Z"/></svg>`,
+  lock:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>`,
+  unlock:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.4-2.1"/></svg>`,
+};
+
+/* ---------------- data ---------------- */
+const MODES = [
+  {key:'overall', label:'Overall', icon:'trophy', color:'#f5c518'},
+  {key:'ltms',    label:'LTMs',    icon:'swords', color:'#e2e8f0'},
+  {key:'vanilla', label:'Vanilla', icon:'gem',    color:'#a855f7'},
+  {key:'uhc',     label:'UHC',     icon:'heart',  color:'#ef4444'},
+  {key:'pot',     label:'Pot',     icon:'flask',  color:'#ec4899'},
+  {key:'nethop',  label:'NethOP',  icon:'ghost',  color:'#a855f7'},
+  {key:'smp',     label:'SMP',     icon:'circleDot', color:'#2dd4bf'},
+  {key:'sword',   label:'Sword',   icon:'sword',  color:'#38bdf8'},
+  {key:'axe',     label:'Axe',     icon:'pickaxe',color:'#38bdf8'},
+  {key:'mace',    label:'Mace',    icon:'hammer', color:'#38bdf8'},
+];
+const RANKED_MODES = MODES.filter(m=>!['overall','ltms'].includes(m.key));
+const TIER_COLORS = {1:'var(--t1)',2:'var(--t2)',3:'var(--t3)',4:'var(--t4)',5:'var(--t5)'};
+const POINTS_HT = {1:60,2:28,3:10,4:3,5:1};
+const POINTS_LT = {1:44,2:16,3:6,4:2,5:0.5};
+const TITLES = [
+  {name:'Combat Grandmaster', min:400, color:'#f472b6'},
+  {name:'Combat Master',      min:250, color:'#f5c518'},
+  {name:'Combat Ace',         min:100, color:'#ef4444'},
+  {name:'Combat Specialist',  min:50,  color:'#2dd4bf'},
+  {name:'Combat Cadet',       min:20,  color:'#e2e8f0'},
+  {name:'Combat Novice',      min:10,  color:'#e2e8f0'},
+  {name:'Combat Rookie',      min:0,   color:'#6b7686'},
+];
+const REGIONS = ['NA','EU','AS','OCE','SA'];
+const AVATAR_COLORS = ['#e0779f','#4ade80','#38bdf8','#f97316','#a855f7','#f5c518','#ef4444','#2dd4bf'];
+// NOTE: this is a client-side-only gate for demo purposes. Anyone can read this value
+// from the page source, so it does not provide real security — see README for details.
+const ADMIN_PASSWORD = 'TonicTLAdmin-12';
+
+function seedPlayers(){
+  return [
+    {id:'p1', username:'elmeriizzzz', region:'EU', color:'#e0779f',
+      tiers:{vanilla:{tier:2,high:false,retired:false}, uhc:{tier:4,high:false,retired:false}, pot:{tier:4,high:true,retired:false},
+             nethop:{tier:4,high:false,retired:false}, smp:{tier:4,high:false,retired:false}, sword:{tier:4,high:true,retired:false},
+             axe:{tier:4,high:false,retired:false}, mace:{tier:3,high:false,retired:false}}},
+    {id:'p2', username:'Adzmi', region:'EU', color:'#4ade80',
+      tiers:{vanilla:{tier:5,high:false,retired:false}, uhc:{tier:5,high:false,retired:false}, pot:{tier:5,high:true,retired:false},
+             nethop:{tier:4,high:true,retired:false}, smp:{tier:4,high:false,retired:false}, sword:{tier:5,high:true,retired:false},
+             axe:{tier:5,high:false,retired:false}, mace:{tier:4,high:true,retired:false}}},
+    {id:'p3', username:'Alawyynn', region:'EU', color:'#94a3b8',
+      tiers:{vanilla:null, uhc:null, pot:null, nethop:null, smp:null, sword:null, axe:null,
+             mace:{tier:4,high:false,retired:false}}},
+  ];
+}
+
+let state = {
+  view:'home',
+  activeMode:'overall',
+  adminMode:false,
+  search:'',
+  players:[],
+  showPointModal:false,
+  showAddModal:false,
+  showPasswordModal:false,
+  passwordError:'',
+  toast:null,
+};
+
+/* ---------------- persistence (browser localStorage) ---------------- */
+const STORAGE_KEY = 'tonic_tiers_players';
+async function loadPlayers(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw){ state.players = JSON.parse(raw); return; }
+  }catch(e){ /* storage unavailable or corrupt */ }
+  state.players = seedPlayers();
+  savePlayers();
+}
+async function savePlayers(){
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state.players)); }catch(e){ console.error('save failed', e); }
+}
+
+/* ---------------- helpers ---------------- */
+function modeByKey(k){ return MODES.find(m=>m.key===k); }
+function pointsFor(entry){
+  if(!entry || !entry.tier) return 0;
+  const base = entry.high ? POINTS_HT[entry.tier] : POINTS_LT[entry.tier];
+  return entry.retired ? base*0.5 : base;
+}
+function totalPoints(player){
+  let sum=0;
+  for(const m of RANKED_MODES) sum += pointsFor(player.tiers[m.key]);
+  return Math.round(sum*10)/10;
+}
+function titleFor(pts){
+  for(const t of TITLES){ if(pts>=t.min) return t; }
+  return TITLES[TITLES.length-1];
+}
+function tierLabel(entry){
+  if(!entry || !entry.tier) return null;
+  return (entry.high?'HT':'LT')+entry.tier;
+}
+function initials(name){ return name.slice(0,2).toUpperCase(); }
+function showToast(msg){
+  state.toast = msg; render();
+  setTimeout(()=>{ state.toast=null; render(); }, 2200);
+}
+function escHtml(s){ return (s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* ---------------- header ---------------- */
+function renderHeader(){
+  return `
+  <div class="header">
+    <div class="logo" onclick="goHome()">
+      <div class="logo-badge">T</div>
+      <div class="logo-text">
+        <div class="t1">TONIC</div>
+        <div class="t2">TIERS</div>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="nav-link ${state.view==='home'?'active':''}" onclick="goHome()">${ICONS.home} Home</button>
+      <button class="nav-link ${state.view==='rankings'?'active':''}" onclick="goRankings('overall')">${ICONS.trophy} Rankings</button>
+      <button class="nav-link" onclick="showToast('Discord integrations aren\\'t part of this demo')">${ICONS.discord} Discords</button>
+      <button class="nav-link" onclick="showToast('API docs aren\\'t part of this demo')">${ICONS.book} API Docs</button>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        ${ICONS.search}
+        <input placeholder="Search player..." value="${escHtml(state.search)}" oninput="onSearch(this.value)">
+        <span class="kbd">/</span>
+      </div>
+      <button class="btn btn-admin ${state.adminMode?'on':''}" onclick="toggleAdmin()">${state.adminMode?ICONS.unlock:ICONS.lock} ${state.adminMode?'Admin Mode':'Admin'}</button>
+      ${state.adminMode?`<button class="icon-btn" title="Log out" onclick="toggleAdmin()">${ICONS.logout}</button>`:''}
+    </div>
+  </div>`;
+}
+
+/* ---------------- home ---------------- */
+function renderHome(){
+  const modeCards = MODES.map(m=>`
+    <div class="mode-card" style="color:${m.color}" onclick="goRankings('${m.key}')">
+      <div class="mode-icon-wrap">${ICONS[m.icon]}</div>
+      <h3 style="color:var(--text)">${m.label}</h3>
+      <div class="tag">RANKED</div>
+    </div>`).join('');
+
+  return `
+  <div class="page">
+    <div class="hero">
+      <div class="hero-grid"></div>
+      <div class="eyebrow">${ICONS.zap} COMPETITIVE MINECRAFT PVP</div>
+      <h1 class="display">The Official <span class="accent">Tonic Tiers</span><br>Leaderboard.</h1>
+      <p>Point-based rankings across 8 game modes with high and low tiers, retired multipliers, and combat titles. Master the meta. Climb the tiers.</p>
+      <div class="hero-actions">
+        <button class="btn btn-gold btn-lg" onclick="goRankings('overall')">${ICONS.trophy} View Rankings</button>
+        <button class="btn btn-lg" onclick="toggleAdmin()">${ICONS.shield} Admin Login</button>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <h2>Game Modes</h2>
+      <p>Ten ranked categories, one competitive ecosystem.</p>
+    </div>
+    <div class="modes-grid">${modeCards}</div>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="ic-icon" style="background:rgba(245,197,24,0.12);color:var(--gold)">${ICONS.trophy}</div>
+        <h4>Point System</h4>
+        <p>HT1 = 60pts, down to LT5 = 1pt. Retired tiers count at 50%.</p>
+      </div>
+      <div class="info-card">
+        <div class="ic-icon" style="background:rgba(56,189,248,0.12);color:#38bdf8">${ICONS.shield}</div>
+        <h4>Verified Tiers</h4>
+        <p>Every rank curated by an admin. No self-reports, no bots.</p>
+      </div>
+      <div class="info-card">
+        <div class="ic-icon" style="background:rgba(236,72,153,0.12);color:#ec4899">${ICONS.zap}</div>
+        <h4>Live Overlay</h4>
+        <p>Tier badges update instantly across all game modes and profiles.</p>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ---------------- rankings ---------------- */
+function renderRankings(){
+  const tabs = MODES.map(m=>`
+    <button class="mode-tab ${state.activeMode===m.key?'active':''}" style="color:${state.activeMode===m.key?'var(--text)':''}" onclick="goRankings('${m.key}')">
+      <span style="color:${m.color}">${ICONS[m.icon]}</span>${m.label}
+    </button>`).join('');
+
+  const mode = modeByKey(state.activeMode);
+  const body = (state.activeMode==='overall') ? renderOverallList() : renderTierBoard(mode);
+
+  return `
+  <div class="page">
+    <div class="mode-tabs">${tabs}</div>
+    <div class="rankings-head">
+      <div>
+        <h1><span style="color:${mode.color}">${ICONS[mode.icon]}</span>${mode.label} Rankings</h1>
+        <p class="sub">Official Tonic Tiers competitive PvP leaderboard</p>
+      </div>
+      <div class="head-actions">
+        ${state.adminMode?`<button class="btn btn-gold" onclick="openAddModal()">${ICONS.plus} Add Player</button>`:''}
+        <button class="btn" onclick="togglePointModal(true)">${ICONS.info} Information</button>
+        <div class="server-widget">
+          <div>
+            <span class="pill">PVP<br>CLUB</span>
+          </div>
+          <div>
+            <div class="lbl">SERVER IP</div>
+            <div class="ip">tonic.gg</div>
+          </div>
+          <button onclick="copyIp()">${ICONS.copy}</button>
+        </div>
+      </div>
+    </div>
+    ${body}
+  </div>`;
+}
+
+function filteredPlayers(){
+  const q = state.search.trim().toLowerCase();
+  if(!q) return state.players;
+  return state.players.filter(p=>p.username.toLowerCase().includes(q));
+}
+
+function renderOverallList(){
+  const players = filteredPlayers()
+    .map(p=>({p, pts: totalPoints(p)}))
+    .sort((a,b)=>b.pts-a.pts);
+
+  if(players.length===0){
+    return `<div class="empty-state">${ICONS.inbox}<p>No players found${state.search?` for "${escHtml(state.search)}"`:''}.</p></div>`;
+  }
+
+  const rows = players.map((row,i)=>{
+    const {p, pts} = row;
+    const title = titleFor(pts);
+    const rankClass = i===0?'n1':i===1?'n2':i===2?'n3':'other';
+    const badges = RANKED_MODES.map(m=>{
+      const entry = p.tiers[m.key];
+      const lbl = tierLabel(entry);
+      if(!lbl){
+        return `<div class="badge-stack"><div class="badge-circle empty" style="color:var(--border)"></div></div>`;
+      }
+      const col = TIER_COLORS[entry.tier];
+      return `<div class="badge-stack">
+        <div class="badge-circle" style="border:1.5px solid ${col};color:${col};background:color-mix(in srgb, ${col} 10%, transparent)">${ICONS[m.icon]}</div>
+        <div class="badge-tier-tag" style="background:color-mix(in srgb, ${col} 18%, transparent);color:${col}">${lbl}</div>
+      </div>`;
+    }).join('');
+
+    return `
+    <div class="rank-row">
+      <div class="rank-num ${rankClass}">${i+1}</div>
+      <div class="avatar" style="background:${p.color}">${initials(p.username)}</div>
+      <div class="player-info">
+        <span class="name">${escHtml(p.username)}</span>
+        <div class="meta">${ICONS.trophy.replace('viewBox="0 0 24 24"','viewBox="0 0 24 24" style="width:12px;height:12px;color:'+title.color+'"')} <span style="color:${title.color}">${title.name}</span> <span class="mono">(${pts} points)</span></div>
+      </div>
+      <div class="region-tag">${p.region}</div>
+      <div class="badges-row">${badges}</div>
+      ${state.adminMode?`<button class="row-admin-del" onclick="deletePlayer('${p.id}')" title="Remove player">${ICONS.trash}</button>`:''}
+    </div>`;
+  }).join('');
+
+  return `<div class="rank-list">${rows}</div>`;
+}
+
+function renderTierBoard(mode){
+  const players = filteredPlayers();
+  const cols = [1,2,3,4,5].map(tierNum=>{
+    const inTier = players.filter(p=>p.tiers[mode.key] && p.tiers[mode.key].tier===tierNum);
+    const ht = inTier.filter(p=>p.tiers[mode.key].high);
+    const lt = inTier.filter(p=>!p.tiers[mode.key].high);
+    const col = TIER_COLORS[tierNum];
+
+    const playerRow = p=>`
+      <div class="tier-player">
+        <div class="av-sm" style="background:${p.color}">${initials(p.username)}</div>
+        <span class="pname">${escHtml(p.username)}</span>
+        <span class="preg mono">${p.region}</span>
+        ${state.adminMode?`<button class="row-admin-del" style="width:22px;height:22px;margin-left:6px" onclick="deletePlayer('${p.id}')">${ICONS.trash}</button>`:''}
+      </div>`;
+
+    return `
+    <div class="tier-col">
+      <div class="tier-col-head" style="color:${col}">
+        <span class="tname">Tier ${tierNum}</span>
+        <span class="tcount">${inTier.length} players</span>
+      </div>
+      <div class="tier-sub">
+        <div class="tier-sub-label" style="color:${col}">HT${tierNum}</div>
+        <div class="tier-sub-list">${ht.length?ht.map(playerRow).join(''):'<span class="tier-empty-dash">—</span>'}</div>
+      </div>
+      <div class="tier-divider"></div>
+      <div class="tier-sub">
+        <div class="tier-sub-label" style="color:${col}">LT${tierNum}</div>
+        <div class="tier-sub-list">${lt.length?lt.map(playerRow).join(''):'<span class="tier-empty-dash">—</span>'}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  return `<div class="tier-board">${cols}</div>`;
+}
+
+/* ---------------- point system modal ---------------- */
+function renderPointModal(){
+  if(!state.showPointModal) return '';
+  const cells = [
+    {l:'HT1',pt:60,c:'var(--t1)'},{l:'LT1',pt:44,c:'var(--t1)'},{l:'HT2',pt:28,c:'var(--t2)'},{l:'LT2',pt:16,c:'var(--t2)'},{l:'HT3',pt:10,c:'var(--t3)'},
+    {l:'LT3',pt:6,c:'var(--t3)'},{l:'HT4',pt:3,c:'var(--t4)'},{l:'LT4',pt:2,c:'var(--t4)'},{l:'HT5',pt:1,c:'var(--t5)'},{l:'LT5',pt:0.5,c:'var(--t5)'},
+  ];
+  const cellsHtml = cells.map(c=>`
+    <div class="pv-cell">
+      <div class="tg" style="background:color-mix(in srgb, ${c.c} 22%, transparent);color:${c.c}">${c.l}</div>
+      <div class="pts">${c.pt}pt</div>
+    </div>`).join('');
+  const titleRows = TITLES.map(t=>{
+    const label = t.min===0?'under 10 pts':`${t.min}+ pts`;
+    return `<div class="title-row"><span class="name" style="color:${t.color}">${t.name}</span><span class="thr">${label}</span></div>`;
+  }).join('');
+
+  return `
+  <div class="overlay" onclick="if(event.target===this) togglePointModal(false)">
+    <div class="modal modal-sm">
+      <div class="modal-head"><h2>Point System &amp; Overlay</h2><button class="modal-close" onclick="togglePointModal(false)">${ICONS.x}</button></div>
+      <p class="desc">Tonic Tiers uses a competitive point-based system across 8 core game modes. Each tier assignment awards points that combine into a player's Overall score and Combat Title.</p>
+      <div class="pv-label">POINT VALUES</div>
+      <div class="pv-grid">${cellsHtml}</div>
+      <div class="pv-label">RETIRED TIERS</div>
+      <div class="retired-note">Retired tier points are counted at 50% of full value.</div>
+      <div class="pv-label">COMBAT TITLES</div>
+      <div class="title-list">${titleRows}</div>
+    </div>
+  </div>`;
+}
+
+/* ---------------- add player modal ---------------- */
+function tierOptions(current){
+  const opts = ['<option value="none">— none —</option>'];
+  for(let t=1;t<=5;t++){
+    opts.push(`<option value="HT${t}">HT${t}</option>`);
+  }
+  for(let t=1;t<=5;t++){
+    opts.push(`<option value="LT${t}">LT${t}</option>`);
+  }
+  return opts.join('');
+}
+
+function renderAddModal(){
+  if(!state.showAddModal) return '';
+  const rows = RANKED_MODES.map(m=>`
+    <div class="tier-assign">
+      <span class="ta-icon" style="color:${m.color}">${ICONS[m.icon]}</span>
+      <span class="ta-name">${m.label}</span>
+      <select id="ta_${m.key}">${tierOptions()}</select>
+      <label class="ta-check"><input type="checkbox" id="tr_${m.key}"> R</label>
+    </div>`).join('');
+  const regionOpts = REGIONS.map(r=>`<option value="${r}">${r}</option>`).join('');
+
+  return `
+  <div class="overlay" onclick="if(event.target===this) toggleAddModal(false)">
+    <div class="modal modal-lg">
+      <div class="modal-head"><h2>Add Player</h2><button class="modal-close" onclick="toggleAddModal(false)">${ICONS.x}</button></div>
+      <div class="form-grid">
+        <div class="field">
+          <label>MINECRAFT USERNAME</label>
+          <input id="new_username" placeholder="Notch">
+        </div>
+        <div class="field">
+          <label>REGION</label>
+          <select id="new_region">${regionOpts}</select>
+        </div>
+      </div>
+      <div class="tiers-legend">TIER ASSIGNMENTS</div>
+      <div class="tier-assign-grid">${rows}</div>
+      <div class="modal-actions">
+        <button class="btn" onclick="toggleAddModal(false)">Cancel</button>
+        <button class="btn btn-gold" onclick="savePlayer()">Save Player</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ---------------- admin password modal ---------------- */
+function renderPasswordModal(){
+  if(!state.showPasswordModal) return '';
+  return `
+  <div class="overlay" onclick="if(event.target===this) closePasswordModal()">
+    <div class="modal modal-sm modal-password">
+      <div class="modal-head">
+        <h2>${ICONS.lock} Admin Access</h2>
+        <button class="modal-close" onclick="closePasswordModal()">${ICONS.x}</button>
+      </div>
+      <p class="desc">Enter the admin password to add players, edit tier assignments, and remove entries from the leaderboard.</p>
+      <div class="field">
+        <label>PASSWORD</label>
+        <input type="password" id="admin_password" placeholder="••••••••••••••••"
+          class="${state.passwordError?'field-invalid':''}"
+          onkeydown="if(event.key==='Enter') submitAdminPassword()">
+      </div>
+      ${state.passwordError?`<div class="field-error">${ICONS.x} ${escHtml(state.passwordError)}</div>`:''}
+      <div class="modal-actions">
+        <button class="btn" onclick="closePasswordModal()">Cancel</button>
+        <button class="btn btn-gold" onclick="submitAdminPassword()">${ICONS.unlock} Unlock</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ---------------- toast ---------------- */
+function renderToast(){
+  if(!state.toast) return '';
+  return `<div class="toast">${ICONS.check}${escHtml(state.toast)}</div>`;
+}
+
+/* ---------------- actions ---------------- */
+function render(){
+  document.getElementById('app').innerHTML =
+    '<div class="top-scan"></div>' +
+    renderHeader() +
+    (state.view==='home' ? renderHome() : renderRankings()) +
+    renderPointModal() +
+    renderAddModal() +
+    renderPasswordModal() +
+    renderToast();
+  if(state.showPasswordModal){
+    const el = document.getElementById('admin_password');
+    if(el) el.focus();
+  }
+}
+function goHome(){ state.view='home'; state.showAddModal=false; state.showPointModal=false; render(); window.scrollTo(0,0); }
+function goRankings(modeKey){ state.view='rankings'; state.activeMode=modeKey; render(); window.scrollTo(0,0); }
+function onSearch(v){ state.search=v; render(); }
+function toggleAdmin(){
+  if(state.adminMode){
+    state.adminMode = false;
+    showToast('Logged out of admin mode');
+    return;
+  }
+  state.showPasswordModal = true;
+  state.passwordError = '';
+  render();
+}
+function closePasswordModal(){
+  state.showPasswordModal = false;
+  state.passwordError = '';
+  render();
+}
+function submitAdminPassword(){
+  const input = document.getElementById('admin_password');
+  const value = input ? input.value : '';
+  if(value === ADMIN_PASSWORD){
+    state.adminMode = true;
+    state.showPasswordModal = false;
+    state.passwordError = '';
+    render();
+    showToast('Admin mode enabled');
+  } else {
+    state.passwordError = 'Incorrect password. Try again.';
+    render();
+    const retryInput = document.getElementById('admin_password');
+    if(retryInput){ retryInput.focus(); retryInput.select(); }
+  }
+}
+function togglePointModal(v){ state.showPointModal=v; render(); }
+function openAddModal(){ state.showAddModal=true; render(); }
+function toggleAddModal(v){ state.showAddModal=v; render(); }
+function copyIp(){
+  navigator.clipboard.writeText('tonic.gg').then(()=>showToast('Server IP copied to clipboard'));
+}
+function deletePlayer(id){
+  state.players = state.players.filter(p=>p.id!==id);
+  savePlayers();
+  showToast('Player removed');
+  render();
+}
+function savePlayer(){
+  const username = document.getElementById('new_username').value.trim();
+  if(!username){ showToast('Enter a username first'); return; }
+  const region = document.getElementById('new_region').value;
+  const tiers = {};
+  for(const m of RANKED_MODES){
+    const val = document.getElementById('ta_'+m.key).value;
+    const retired = document.getElementById('tr_'+m.key).checked;
+    if(val==='none'){ tiers[m.key]=null; }
+    else{
+      const high = val.startsWith('HT');
+      const tier = parseInt(val.slice(2));
+      tiers[m.key] = {tier, high, retired};
+    }
+  }
+  const color = AVATAR_COLORS[Math.floor(Math.random()*AVATAR_COLORS.length)];
+  state.players.push({id:'p'+Date.now(), username, region, color, tiers});
+  savePlayers();
+  state.showAddModal=false;
+  showToast('Player added');
+  render();
+}
+
+/* ---------------- init ---------------- */
+(async function init(){
+  await loadPlayers();
+  render();
+})();
